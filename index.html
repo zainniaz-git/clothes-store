@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CC STORE | Premium Fashion</title>
+<meta name="description" content="Premium fashion, accessories and everyday essentials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ann" aria-label="Announcements"><div class="mq" id="mq"></div></div>
+
+<header id="hdr">
+  <div class="nav">
+    <button class="ib burger" data-act="menu" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    <a href="#home" class="brand" id="brand1" aria-label="Home"></a>
+    <nav class="links" id="links" aria-label="Main"></nav>
+    <div class="icons">
+      <button class="ib" data-act="search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="ib" data-act="wishopen" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="cc" id="wc" hidden>0</span></button>
+      <button class="ib" data-act="cartopen" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cc" id="cc" hidden>0</span></button>
+    </div>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Mobile"></nav>
+
+<main>
+<!-- HERO: replace image in CONFIG.images.hero -->
+<section class="hero" id="home">
+  <img class="hero-bg" id="heroImg" alt="Fashion campaign with male and female models" onerror="fb(this)">
+  <div class="wrap">
+    <h1>DEFINE YOUR STYLE.</h1>
+    <p>Discover premium fashion, accessories and everyday essentials designed for your lifestyle.</p>
+    <div class="row">
+      <button class="btn light" data-f='{"gender":"m"}'>Shop Men</button>
+      <button class="btn ghost" style="color:#fff;border-color:#fff" data-f='{"gender":"w"}'>Shop Women</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="categories"><div class="wrap">
+  <div class="sh rv"><h2>Shop by category</h2></div>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<div id="ban0"></div>
+<div id="secs"></div>
+
+<section class="sec" id="shop"><div class="wrap">
+  <div class="sh rv"><h2>Shop all</h2></div>
+  <div class="fb">
+    <select id="fCat" aria-label="Category"></select>
+    <select id="fMax" aria-label="Price"></select>
+    <select id="fSize" aria-label="Size"></select>
+    <select id="fColor" aria-label="Color"></select>
+    <select id="fRate" aria-label="Rating"></select>
+    <select id="fAvail" aria-label="Availability"></select>
+    <select id="fSort" aria-label="Sort"></select>
+    <button class="btn ghost sm" data-act="reset">Reset</button>
+  </div>
+  <p id="shopCount" aria-live="polite"></p>
+  <div class="grid" id="shopGrid"></div>
+  <div class="empty" id="shopEmpty" hidden><i class="fa-regular fa-face-frown"></i><p>No products match these filters.</p><button class="btn ghost sm" style="margin-top:14px" data-act="reset">Reset filters</button></div>
+</div></section>
+
+<div id="ban1"></div><div id="ban2"></div><div id="ban3"></div>
+
+<section class="wrap about">
+  <!-- ABOUT IMAGE: CONFIG.images.about -->
+  <img id="aboutImg" class="rv" alt="Lifestyle fashion editorial" loading="lazy" onerror="fb(this)">
+  <div class="rv">
+    <h2>MORE THAN FASHION. IT'S YOUR IDENTITY.</h2>
+    <p>We believe style is more than what you wear. It's how you express yourself. Discover carefully selected fashion, accessories and lifestyle essentials that help you stand out every day.</p>
+    <button class="btn" data-f='{}'>Shop the collection</button>
+  </div>
+</section>
+
+<section class="news rv">
+  <h2>STAY AHEAD OF THE STYLE.</h2>
+  <p>Get updates about new arrivals, exclusive offers and the latest collections.</p>
+  <form class="nf" id="nForm" novalidate>
+    <input type="email" id="nMail" placeholder="Your email address" aria-label="Email address" autocomplete="email">
+    <button class="btn" type="submit">Subscribe</button>
+  </form>
+  <p id="nMsg" role="status"></p>
+</section>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <div class="fg" id="fg"></div>
+  <div class="fbot"><span id="copy"></span>
+    <div class="pay"><span><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery</span><span><i class="fa-solid fa-building-columns"></i> Bank Transfer</span></div>
+  </div>
+</div></footer>
+<button id="top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- OVERLAYS -->
+<div id="scrim" data-act="close"></div>
+<aside class="drawer" id="cart" aria-label="Shopping cart">
+  <div class="dh"><span>Your cart</span><button class="ib" data-act="close" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="db" id="cartBody"></div><div class="df" id="cartFoot"></div>
+</aside>
+<aside class="drawer" id="wish" aria-label="Wishlist">
+  <div class="dh"><span>Your wishlist</span><button class="ib" data-act="close" aria-label="Close wishlist"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="db" id="wishBody"></div>
+</aside>
+<div id="modal" role="dialog" aria-modal="true"><div class="box"><button class="x" data-act="close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div id="mbody"></div></div></div>
+<div id="search" role="dialog" aria-label="Search"><div class="wrap">
+  <button class="ib" style="float:right" data-act="close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+  <div class="sbar" style="clear:both"><i class="fa-solid fa-magnifying-glass"></i><input id="sIn" type="search" placeholder="Search products, categories, colors..." autocomplete="off" aria-label="Search"><button class="ib" data-act="sclear" aria-label="Clear search"><i class="fa-solid fa-delete-left"></i></button></div>
+  <div class="sugs" id="sugs"></div><div class="sres" id="sres"></div>
+</div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
